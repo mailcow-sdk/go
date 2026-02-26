@@ -1,0 +1,284 @@
+# \DomainAntispamPoliciesAPI
+
+All URIs are relative to *http://localhost*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**CreateDomainPolicy**](DomainAntispamPoliciesAPI.md#CreateDomainPolicy) | **Post** /api/v1/add/domain-policy | Create domain policy
+[**DeleteDomainPolicy**](DomainAntispamPoliciesAPI.md#DeleteDomainPolicy) | **Post** /api/v1/delete/domain-policy | Delete domain policy
+[**ListBlacklistDomainPolicy**](DomainAntispamPoliciesAPI.md#ListBlacklistDomainPolicy) | **Get** /api/v1/get/policy_bl_domain/{domain} | List blacklist domain policy
+[**ListWhitelistDomainPolicy**](DomainAntispamPoliciesAPI.md#ListWhitelistDomainPolicy) | **Get** /api/v1/get/policy_wl_domain/{domain} | List whitelist domain policy
+
+
+
+## CreateDomainPolicy
+
+> CreateAlias200Response CreateDomainPolicy(ctx).CreateDomainPolicyRequest(createDomainPolicyRequest).Execute()
+
+Create domain policy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	createDomainPolicyRequest := *openapiclient.NewCreateDomainPolicyRequest() // CreateDomainPolicyRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DomainAntispamPoliciesAPI.CreateDomainPolicy(context.Background()).CreateDomainPolicyRequest(createDomainPolicyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DomainAntispamPoliciesAPI.CreateDomainPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateDomainPolicy`: CreateAlias200Response
+	fmt.Fprintf(os.Stdout, "Response from `DomainAntispamPoliciesAPI.CreateDomainPolicy`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDomainPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createDomainPolicyRequest** | [**CreateDomainPolicyRequest**](CreateDomainPolicyRequest.md) |  | 
+
+### Return type
+
+[**CreateAlias200Response**](CreateAlias200Response.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteDomainPolicy
+
+> CreateAlias200Response DeleteDomainPolicy(ctx).DeleteDomainPolicyRequest(deleteDomainPolicyRequest).Execute()
+
+Delete domain policy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	deleteDomainPolicyRequest := *openapiclient.NewDeleteDomainPolicyRequest() // DeleteDomainPolicyRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DomainAntispamPoliciesAPI.DeleteDomainPolicy(context.Background()).DeleteDomainPolicyRequest(deleteDomainPolicyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DomainAntispamPoliciesAPI.DeleteDomainPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteDomainPolicy`: CreateAlias200Response
+	fmt.Fprintf(os.Stdout, "Response from `DomainAntispamPoliciesAPI.DeleteDomainPolicy`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteDomainPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deleteDomainPolicyRequest** | [**DeleteDomainPolicyRequest**](DeleteDomainPolicyRequest.md) |  | 
+
+### Return type
+
+[**CreateAlias200Response**](CreateAlias200Response.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListBlacklistDomainPolicy
+
+> ListBlacklistDomainPolicy(ctx, domain).XAPIKey(xAPIKey).Execute()
+
+List blacklist domain policy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	domain := "domain_example" // string | name of domain
+	xAPIKey := "api-key-string" // string | e.g. api-key-string (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DomainAntispamPoliciesAPI.ListBlacklistDomainPolicy(context.Background(), domain).XAPIKey(xAPIKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DomainAntispamPoliciesAPI.ListBlacklistDomainPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**domain** | **string** | name of domain | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListBlacklistDomainPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xAPIKey** | **string** | e.g. api-key-string | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListWhitelistDomainPolicy
+
+> ListWhitelistDomainPolicy(ctx, domain).XAPIKey(xAPIKey).Execute()
+
+List whitelist domain policy
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	domain := "domain_example" // string | name of domain
+	xAPIKey := "api-key-string" // string | e.g. api-key-string (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DomainAntispamPoliciesAPI.ListWhitelistDomainPolicy(context.Background(), domain).XAPIKey(xAPIKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DomainAntispamPoliciesAPI.ListWhitelistDomainPolicy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**domain** | **string** | name of domain | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListWhitelistDomainPolicyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xAPIKey** | **string** | e.g. api-key-string | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
